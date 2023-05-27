@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin-top: 3%;
+        margin-bottom: 5%;
+    }
+
+    /*---------------- header -----------------*/
+    header {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 2;
+    }
+
+    #navbar {
+        background-color: black;
+        color: white;
+        padding-top: 0.4%;
+        padding-bottom: 0.5px;
+        /* width: 100vw; */
+    }
+
+    #Title {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        font-family: sans-serif;
+        letter-spacing: 2px;
+    }
+
+    #logoSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+        /* padding-bottom: 2%; */
+
+    }
+
+    #categories {
+        width: 60vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+    }
+
+    .categories_a {
+        font-weight: 600;
+        font-size: 17px;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        /* padding-top: 3px; */
+        padding-bottom: 4px;
+        border-bottom: 2px solid white;
+    }
+
+    .categories_a a {
+        color: black;
+        text-decoration: none;
+    }
+
+    #categories .categories_a:hover {
+        border-bottom-color: black;
+    }
+
+    .menuContainer {
+        position: relative;
+        display: inline-block;
+    }
+
+    .menu {
+        line-height: 30px;
+        font-family: sans-serif;
+        background-color: white;
+        padding-left: 1vw;
+        padding-right: 5vw;
+        font-weight: 500;
+        display: none;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        position: absolute;
+    }
+
+
+
+    #categories .menuContainer:hover .menu {
+        display: block;
+    }
+
+    .dropdown:hover a {
+        color: #5f961c;
+        /* display: block; */
+    }
+
+    .dropdown:hover .menu {
+        /* color: #5f961c; */
+        display: block;
+    }
+
+    .search a {
+        margin-left: 15px;
+        color: black;
+        text-decoration: none;
+    }
+
+    .search a:hover {
+        color: #5f961c;
+    }
+
+    .drawersection span {
+        display: none;
+        position: absolute;
+        left: 1vw;
+        top: 40%;
+        font-size: 22px;
+        opacity: 0.8;
+
+    }
+
+    #dropdown_search {
+        display: none;
+        position: absolute;
+        right: 1vw;
+        top: 40%;
+        font-size: 22px;
+    }
+
+    #dropdown_search i {
+        margin-left: 2vw;
+        opacity: 0.8;
+    }
+
+    #dropdown_search i:hover {
+        color: #5f961c;
+    }
+
+    /* drawer manu */
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-top: 60px;
+        transition: 0.5s;
+    }
+
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        font-family: sans-serif;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    .sidenav hr {
+        width: 80%;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.5;
+    }
+
+    .sidenav p {
+        padding: 8px 8px 8px 32px;
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: black;
+        display: inline-block;
+        line-height: 0px;
+    }
+
+
+    .sidenav a:hover {
+        color: #5f961c;
+        ;
+    }
+
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* ---------- main --------- */
+    /* section1 */
+    #section1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    #section1 a {
+        font-family: sans-serif;
+        font-size: 15px;
+        color: #283913;
+    }
+
+    /* section2 */
+    #section2 {
+        display: flex;
+        flex-direction: row;
+        margin-left: 7vw;
+    }
+
+    #details {
+        margin-bottom: 7vh;
+    }
+
+    #details h4 {
+        font-family: sans-serif;
+    }
+
+    #details p {
+        font-family: sans-serif;
+        font-weight: 549;
+        line-height: 1vh;
+    }
+
+    #form {
+        font-family: sans-serif;
+        width: 55vw;
+        /* background-color: #283913; */
+        margin-left: 10vw;
+        margin-top: 2vh;
+    }
+
+    #form :first-child {
+        font-family: sans-serif;
+        font-size: 4vh;
+        font-weight: 700;
+    }
+
+    #form_p {
+        font-size: 3vh;
+    }
+
+    #textinput_area {
+        line-height: 1vh;
+        font-family: sans-serif;
+        margin-top: 8vh;
+    }
+
+    #textinput_area :first-child {
+        font-weight: 600;
+        font-size: 2.5vh;
+    }
+
+    .textinput {
+        width: 100%;
+        height: 5vh;
+        border: 1px solid rgb(201, 198, 198);
+        border-radius: 0.5vw;
+    }
+
+    .textarea_title {
+        font-weight: 550;
+        font-size: 2.5vh;
+        margin-top: 4vh;
+    }
+
+    /* ----- footer ------ */
+    footer {
+        height: 60vh;
+        background-color: #283913;
+    }
+
+    .footer_div {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .footer_title {
+        font-size: 20px;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .footer_a {
+        color: white;
+        font-family: sans-serif;
+        margin-bottom: 6%;
+        font-size: 15px;
+    }
+
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 50vh;
+        background-color: #283913;
+    }
+
+    @media screen and (max-width: 2000px) and (min-width: 1623px) {
+        #categories {
+            width: 38vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 10vh;
+            align-items: center;
+        }
+
+    }
+
+    @media screen and (max-width: 1625px) and (min-width: 1370px) {
+        #categories {
+            width: 45vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 10vh;
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width:992px) {
+
+        /* <!-- header --> */
+        #navbar {
+            display: none;
+        }
+
+        .dropdown {
+            display: none;
+        }
+
+        #categories {
+            display: none;
+        }
+
+        .search a {
+            display: none;
+        }
+
+        .drawersection span {
+            display: block;
+        }
+
+        #dropdown_search {
+            display: block;
+        }
+
+        .dropdown a {
+            display: none;
+        }
+
+    }
+
+    @media screen and (max-width:823px) {
+        footer {
+            height: 130%;
+        }
+
+        .footer_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 94%;
+            padding-left: 7vw;
+
+        }
+
+        .footer_a {
+            margin-bottom: 5%;
+        }
+    }
+
+    @media screen and (max-width:915px) {
+        #form {
+            width: 49vw;
+        }
+    }
+
+    @media screen and (max-width:760px) {
+        #section2 {
+            flex-direction: column;
+        }
+
+        #form {
+            margin-left: 0;
+            width: 65vw;
+        }
+
+        #form :first-child {
+            font-size: 3vh;
+        }
+
+        #form_p {
+            font-size: 2.5vh;
+        }
+    }
+
+    @media screen and (max-width:280px) {
+        #details p {
+            font-size: 1.8vh;
+        }
+
+        #form :first-child {
+            font-size: 2.5vh;
+        }
+
+        #form_p {
+            font-size: 2vh;
+        }
+    }
+</style>
+
+<body>
+    <!----------- header ------------->
+    <web-header></web-header>
+    <!------------- Main -------------->
+    <main style="margin-bottom: 20vh;">
+        <!-- section1 -->
+        <div id="section1">
+            <a>Home</a>
+            <a style="margin-left: 1vw;margin-right: 1vw;">|</a>
+            <a>Contact Us</a>
+        </div>
+        <!-- section2 -->
+        <div id="section2">
+            <div>
+                <div id="details">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <p> +09123 456 789</p>
+                    <p>Monday to Friday</p>
+                    <p>10am - 6.30pm (NewYork time)</p>
+                </div>
+                <div id="details">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <p> +09123 456 789</p>
+                    <p>Monday to Friday</p>
+                    <p>10am - 6.30pm (NewYork time)</p>
+                </div>
+                <div id="details">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <p> +09123 456 789</p>
+                    <p>Monday to Friday</p>
+                    <p>10am - 6.30pm (NewYork time)</p>
+                </div>
+            </div>
+            <div id="form">
+                <p>Have a question about a product, our company, or just want to chat? Email us!</p>
+                <p id="form_p">We will be glad to assist you in any question and encourage you to share your
+                    ideas and improvements
+                    with us.</p>
+                <div id="textinput_area">
+                    <p>Name</p>
+                    <input type="text" class="textinput" />
+                    <p class="textarea_title">Email</p>
+                    <input type="text" class="textinput" />
+                    <p class="textarea_title">Message</p>
+                    <input type="text" class="textinput" style="height: 15vh;" />
+                    <button
+                        style="color: white;background-color: #283913;border-radius: 0.5vw;padding: 0.7vw;margin-top: 2vh;font-family: sans-serif;font-size: 90%;">Submit</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--------- footer ---------->
+    <web-footer />
+
+</body>
+<script src="../Component.js"></script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "350px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+</html>

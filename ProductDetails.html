@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin-top: 3%;
+        margin-bottom: 5%;
+    }
+
+    /*---------------- header -----------------*/
+    header {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 2;
+    }
+
+    #navbar {
+        background-color: black;
+        color: white;
+        padding-top: 0.4%;
+        padding-bottom: 0.5px;
+        /* width: 100vw; */
+    }
+
+    #Title {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        font-family: sans-serif;
+        letter-spacing: 2px;
+    }
+
+    #logoSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+        /* padding-bottom: 2%; */
+
+    }
+
+    #categories {
+        width: 60vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+    }
+
+    .categories_a {
+        font-weight: 600;
+        font-size: 17px;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        /* padding-top: 3px; */
+        padding-bottom: 4px;
+        border-bottom: 2px solid white;
+    }
+    .categories_a a{
+        color: black;
+        text-decoration: none;
+    }
+
+    #categories .categories_a:hover {
+      border-bottom-color: black;
+    }
+
+    .menuContainer {
+        position: relative;
+        display: inline-block;
+    }
+
+    .menu {
+        line-height: 30px;
+        font-family: sans-serif;
+        background-color: white;
+        padding-left: 1vw;
+        padding-right: 5vw;
+        font-weight: 500;
+        display: none;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        position: absolute;
+    }
+
+
+
+    #categories .menuContainer:hover .menu {
+        display: block;
+    }
+
+    .dropdown:hover a {
+        color: #5f961c;
+        /* display: block; */
+    }
+
+    .dropdown:hover .menu {
+        /* color: #5f961c; */
+        display: block;
+    }
+
+    .search a {
+        margin-left: 15px;
+        color: black;
+        text-decoration: none;
+    }
+
+    .search a:hover {
+        color: #5f961c;
+    }
+
+    .drawersection span {
+        display: none;
+        position: absolute;
+        left: 1vw;
+        top: 40%;
+        font-size: 22px;
+        opacity: 0.8;
+
+    }
+
+    #dropdown_search {
+        display: none;
+        position: absolute;
+        right: 1vw;
+        top: 40%;
+        font-size: 22px;
+    }
+
+    #dropdown_search i {
+        margin-left: 2vw;
+        opacity: 0.8;
+    }
+
+    #dropdown_search i:hover {
+        color: #5f961c;
+    }
+
+    /* drawer manu */
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-top: 60px;
+        transition: 0.5s;
+    }
+
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        font-family: sans-serif;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    .sidenav hr {
+        width: 80%;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.5;
+    }
+
+    .sidenav p {
+        padding: 8px 8px 8px 32px;
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: black;
+        display: inline-block;
+        line-height: 0px;
+    }
+
+
+    .sidenav a:hover {
+        color: #5f961c;
+        ;
+    }
+
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    /* ---------- main --------- */
+    /* section1 */
+    #section1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    #section1 a {
+        font-family: sans-serif;
+        font-size: 13px;
+        color: #283913;
+    }
+
+    /* section2 */
+    #section2 {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10vh;
+        justify-content: space-between;
+    }
+
+    #section2_img {
+        width: 60vw;
+    }
+
+    #backgroundimage1 {
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_1_780x825_crop_top.jpg?v=1594034205");
+        background-repeat: no-repeat;
+        height: 85vh;
+        /* width: 100vw; */
+        background-size: cover;
+        background-position: center;
+        border: 1px solid rgb(235, 233, 233);
+        margin-bottom: 1vh;
+    }
+
+    #section2_allimg {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #section2_allimg img {
+        border: 1px solid rgb(235, 233, 233);
+        width: 19%;
+    }
+
+    #quantity_btn {
+
+        padding-top: 0.3vw;
+        padding-bottom: 0.3vw;
+        border: 1px solid black;
+        text-align: center;
+        border-radius: 1vh;
+        width: 30%;
+        font-size: 13px;
+        margin-right: 1vw;
+    }
+
+    #section2_description {
+        width: 36vw;
+        font-family: sans-serif;
+        margin-top: 1vh;
+    }
+
+    /* ----- footer ------ */
+    footer {
+        height: 60vh;
+        background-color: #283913;
+    }
+
+    .footer_div {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .footer_title {
+        font-size: 20px;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .footer_a {
+        color: white;
+        font-family: sans-serif;
+        margin-bottom: 6%;
+        font-size: 15px;
+    }
+
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 50vh;
+        background-color: #283913;
+    }
+    @media screen and (max-width: 2000px) and (min-width: 1623px) {
+        #categories {
+        width: 38vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+    }
+    
+    }
+    @media screen and (max-width: 1625px) and (min-width: 1370px) {
+        #categories {
+        width: 45vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+    }
+}
+    @media screen and (max-width:992px) {
+
+        /* <!-- header --> */
+        #navbar {
+            display: none;
+        }
+
+        .dropdown {
+            display: none;
+        }
+
+        #categories {
+            display: none;
+        }
+
+        .search a {
+            display: none;
+        }
+        .drawersection span {
+            display: block;
+        }
+
+        #dropdown_search {
+            display: block;
+        }
+
+        .dropdown a {
+            display: none;
+        }
+
+        #section2_img {
+            width: 50vw;
+        }
+
+        #section2_description {
+            width: 46vw;
+            margin-left: 2vh;
+        }
+
+
+    }
+
+    @media screen and (max-width:823px) {
+        footer {
+            height: 130%;
+        }
+
+        .footer_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 94%;
+            padding-left: 7vw;
+
+        }
+
+        .footer_a {
+            margin-bottom: 5%;
+        }
+
+        #section2 {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10;
+            justify-content: flex-start;
+            width: 80vw;
+            margin: auto;
+        }
+
+        #section2_img {
+            width: 100%;
+        }
+
+        #section2_description {
+            width: 100%;
+            margin-left: 2vh;
+        }
+    }
+
+    @media screen and (max-width:611px) {
+        #backgroundimage1 {
+            height: 66vh;
+        }
+    }
+
+    @media screen and (max-width:490px) {
+        #backgroundimage1 {
+            height: 50vh;
+        }
+    }
+
+    @media screen and (max-width:365px) {
+        #backgroundimage1 {
+            height: 40vh;
+        }
+    }
+</style>
+
+<body>
+    <!-- header -->
+    <web-header></web-header>
+    <!-- main -->
+    <main style="margin-bottom: 20vh;">
+        <!-- section1 -->
+        <div id="section1">
+            <a>Home</a>
+            <a style="margin-left: 1vw;margin-right: 1vw;font-size: 17px;">|</a>
+            <a>Contact Us</a>
+            <a style="margin-left: 1vw;margin-right: 1vw;font-size: 17px;">|</a>
+            <a>Namaste D Bubba</a>
+        </div>
+        <!-- section2 -->
+        <div id="section2">
+            <div id="section2_img">
+                <div id="backgroundimage1"></div>
+                <div id="section2_allimg">
+                    <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_1_148x148_crop_top.jpg?v=1594034205"
+                        alt="error">
+                    <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_2_148x148_crop_top.jpg?v=1594034205"
+                        alt="error">
+                    <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_3_148x148_crop_top.jpg?v=1594034205"
+                        alt="error">
+                    <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_4_148x148_crop_top.jpg?v=1594034205"
+                        alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/products/namaste_d_bubba_5_148x148_crop_top.jpg?v=1594034205"
+                        alt="">
+                </div>
+            </div>
+            <div id="section2_description">
+                <p style="font-size: 16px;"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                        class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                        class="fa-regular fa-star"></i> No reviews</p>
+                <p style="font-weight: 500;font-size: 22px;">Namaste D Bubba</p>
+                <h2 style="color: #283913;">$255.00</h2>
+                <p style="font-weight: 540;font-size: 19px;line-height: 4vh;">HEALTH IS ONE OF THE MOST IMPORTANT THINGS
+                    IN OUR LIFE. WE THINK THAT IT IS A REAL LUCK TO HAVE A
+                    STRONG HEALTH. OUR WAY OF LIFE DOESN’T INCREASE THE PHYSIOLOGICAL CONDITION OF OUR BODY. ALCOHOL,
+                    ...</p>
+                <p style="font-size: 2vh;">Vendor: Holy Weed</p>
+                <p style="font-size: 2vh;">Product type: Personal care</p>
+                <p style="font-size: 2vh;">Tags: Accessories</p>
+                <!-- quantity -->
+                <br>
+                <div>
+                    <p style="font-size: 2vh;font-weight: 600;">QUANTITY:</p>
+                    <div style="display: flex;flex-direction: row;">
+                        <div id="quantity_btn">
+                            <p>1</p>
+                        </div>
+                        <div id="quantity_btn" style="color: white;background-color: gray; border: 0px;">
+                            <p>ADD TO CART</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <web-footer></web-footer>
+</body>
+<script src="./Component.js"></script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "350px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+</html>

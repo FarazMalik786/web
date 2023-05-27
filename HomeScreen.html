@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="/icons/all.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,500,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,500,0,0" />
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin-top: 3%;
+
+    }
+
+    /*---------------- header -----------------*/
+    header {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 2;
+    }
+
+    #navbar {
+        background-color: black;
+        color: white;
+        padding-top: 0.4%;
+        padding-bottom: 0.5px;
+        /* width: 100vw; */
+    }
+
+    #Title {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        font-family: sans-serif;
+        letter-spacing: 2px;
+    }
+
+    #logoSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+        /* padding-bottom: 2%; */
+
+    }
+
+    #categories {
+        width: 60vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+    }
+
+    .categories_a {
+        font-weight: 600;
+        font-size: 17px;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        /* padding-top: 3px; */
+        padding-bottom: 4px;
+        border-bottom: 2px solid white;
+
+    }
+
+    .categories_a a {
+        color: black;
+        text-decoration: none;
+    }
+
+    #categories .categories_a:hover {
+
+        border-bottom-color: black;
+    }
+
+    .menuContainer {
+        position: relative;
+        display: inline-block;
+    }
+
+    .menu {
+        line-height: 30px;
+        font-family: sans-serif;
+        background-color: white;
+        padding-left: 1vw;
+        padding-right: 5vw;
+        font-weight: 500;
+        display: none;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        position: absolute;
+    }
+
+
+
+    #categories .menuContainer:hover .menu {
+        display: block;
+    }
+
+    .dropdown:hover a {
+        color: #5f961c;
+        /* display: block; */
+    }
+
+    .dropdown:hover .menu {
+        /* color: #5f961c; */
+        display: block;
+    }
+
+    .search a {
+        margin-left: 15px;
+        color: black;
+        text-decoration: none;
+    }
+
+    .search a:hover {
+        color: #5f961c;
+    }
+
+    .drawersection span {
+        display: none;
+        position: absolute;
+
+        left: 1vw;
+        top: 40%;
+        font-size: 22px;
+        opacity: 0.8;
+
+    }
+
+    #dropdown_search {
+        display: none;
+        position: absolute;
+        right: 1vw;
+        top: 40%;
+        font-size: 22px;
+    }
+
+    #dropdown_search i {
+        margin-left: 2vw;
+        opacity: 0.8;
+    }
+
+    #dropdown_search i:hover {
+        color: #5f961c;
+    }
+
+    /* drawer manu */
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-top: 60px;
+        transition: 0.5s;
+    }
+
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        font-family: sans-serif;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    .sidenav hr {
+        width: 80%;
+        background-color: rgb(255, 255, 255);
+        opacity: 0.5;
+    }
+
+    .sidenav p {
+        padding: 8px 8px 8px 32px;
+        font-family: sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: black;
+        display: inline-block;
+        line-height: 0px;
+    }
+
+
+    .sidenav a:hover {
+        color: #5f961c;
+        ;
+    }
+
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* ---------- main --------- */
+    /* --- section1 --- */
+    #section1 {
+        /* width: 100vw; */
+    }
+
+    #section1_ImgContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1.5%;
+    }
+
+    #backgroundimage1 {
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/slide_1_1810x700_crop_top.png?v=1613560291");
+        background-repeat: no-repeat;
+        height: 65vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        animation-name: backgroundimage;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        padding-top: 15vh;
+    }
+
+    @keyframes backgroundimage {
+        0% {
+            background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/slide_1_1810x700_crop_top.png?v=1613560291");
+        }
+
+        50% {
+            background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/slide_2_1810x700_crop_top.png?v=1613560291");
+        }
+
+        100% {
+            background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/slide_1_1810x700_crop_top.png?v=1613560291");
+        }
+    }
+
+    #backgroundimage1_text1 {
+        font-size: 3vh;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    #backgroundimage1_text2 {
+        font-size: 15vh;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    #backgroundimage1_button {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        font-size: 2vh;
+        font-family: sans-serif;
+        font-weight: 600;
+        border-radius: 7px;
+
+    }
+
+    #backgroundimage1_button:hover {
+        color: black;
+        background-color: white;
+    }
+
+
+    #sec1_imgDiv1 {
+        width: 66%;
+        overflow: hidden;
+    }
+
+    #sec1_imgDiv2 {
+        width: 33%;
+        overflow: hidden;
+    }
+
+
+    #backgroundimage2 {
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/banner_2_1197x700_crop_center.png?v=1613560291");
+        background-repeat: no-repeat;
+        height: 65vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-family: sans-serif;
+        font-size: 18px;
+        transition: 0.5s;
+        cursor: pointer;
+        overflow: hidden;
+        font-weight: 600;
+    }
+
+    #backgroundimage2 p {
+
+        display: inline-block;
+        margin-top: 50vh;
+        margin-left: 8%;
+    }
+
+    #backgroundimage2:hover {
+        transform: scale(1.04)
+    }
+
+    #backgroundimage2:hover p {
+        border-bottom: 2px solid white;
+    }
+
+
+    #backgroundimage3 {
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/banner_3_590x700_crop_center.png?v=1613560291");
+        background-repeat: no-repeat;
+        height: 65vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-family: sans-serif;
+        font-size: 18px;
+        transition: 0.5s;
+        cursor: pointer;
+        overflow: hidden;
+        font-weight: 600;
+    }
+
+    #backgroundimage3 p {
+        display: inline-block;
+        margin-left: 8%;
+        margin-top: 50vh;
+    }
+
+    #backgroundimage3:hover {
+        transform: scale(1.04)
+    }
+
+    #backgroundimage3:hover p {
+        border-bottom: 2px solid white;
+    }
+
+    /* --- section2 --- */
+    #section2 {
+        margin-top: 3%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        width: 90vw;
+        margin: auto;
+
+    }
+
+    .section2_btn {
+        color: white;
+        background-color: #283913;
+        padding: 1.5vh;
+        display: none;
+        font-family: sans-serif;
+        margin-top: 1vh;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    #section2_Title {
+        color: black;
+        font-size: 25px;
+        font-family: sans-serif;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    #section2_imgContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    .section2_div {
+        width: 18vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 5px;
+    }
+
+    .section2_img {
+        height: 35vh;
+        width: 17vw;
+        border: 1px solid rgb(235, 232, 232);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imghoverbtn {
+        display: none;
+        background-color: #283913;
+        color: white;
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+        padding-left: 1vw;
+        padding-right: 1vw;
+        border-radius: 3px;
+        font-family: sans-serif;
+        font-size: 15px;
+        border: 0px;
+    }
+
+    .section2_img:hover .imghoverbtn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .section2_p {
+        font-size: 18px;
+        font-family: sans-serif;
+        text-align: center;
+        line-height: 25px;
+    }
+
+    /* ---- section3 ----- */
+    .section3 {
+        width: 100vw;
+    }
+
+    #section3_ImgContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2%;
+    }
+
+    #section3_backgroundimage1 {
+
+        background-image: url("https://wallpapercave.com/wp/wp1856330.jpg");
+        background-repeat: no-repeat;
+        height: 70vh;
+        background-size: cover;
+        padding-left: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    #sec3_Img1_Text {
+        font-size: 10vh;
+        font-weight: 600;
+        font-family: sans-serif;
+        color: white;
+    }
+
+    #sec3_Img1_Text2 {
+        font-size: 2.2vh;
+        font-weight: 500;
+        font-family: sans-serif;
+        color: white;
+        width: 33%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #sec3_Img1_button {
+        width: 10%;
+        color: white;
+        background-color: #283913;
+        padding: 1vw;
+        border-radius: 7px;
+        font-weight: 700;
+        font-family: sans-serif;
+    }
+
+    #sec3_Img1_button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .sec3_imgContainer {
+        overflow: hidden;
+        width: 32%;
+    }
+
+    #section3_backgroundimage2 {
+
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/banner_5_590x700_crop_center.png?v=1613560299");
+        background-repeat: no-repeat;
+        height: 75vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: 0.5s;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+
+
+    #section3_backgroundimage2:hover {
+        transform: scale(1.04)
+    }
+
+    #section3_backgroundimage3:hover {
+        transform: scale(1.04)
+    }
+
+    #section3_backgroundimage4:hover {
+        transform: scale(1.04)
+    }
+
+    #section3_backgroundimage2:hover p {
+        border-bottom: 2px solid white;
+        /* width: 19%; */
+    }
+
+    #section3_backgroundimage3:hover p {
+        border-bottom: 2px solid white;
+        /* width: 9%; */
+    }
+
+    #section3_backgroundimage4:hover p {
+        border-bottom: 2px solid white;
+        /* width: 35%; */
+    }
+
+    #section3_backgroundimage3 {
+
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/banner_6_590x700_crop_center.png?v=1613560299");
+        background-repeat: no-repeat;
+        height: 75vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: 0.5s;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    #section3_backgroundimage4 {
+
+        background-image: url("https://cdn.shopify.com/s/files/1/0425/0818/9859/files/banner_7_590x700_crop_center.png?v=1613560299");
+        background-repeat: no-repeat;
+        height: 75vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        justify-content: flex-end;
+        transition: 0.5s;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .sec3_img_p {
+        margin-left: 8%;
+        margin-top: 63vh;
+        /* position: relative; */
+        /* top: 10%; */
+        color: white;
+        font-family: sans-serif;
+        font-size: 18px;
+        display: inline-block;
+        font-weight: 600;
+    }
+
+    /* ----- footer ------ */
+    footer {
+        height: 60vh;
+        background-color: #283913;
+    }
+
+    .footer_div {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .footer_title {
+        font-size: 20px;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .footer_a {
+        color: white;
+        font-family: sans-serif;
+        margin-bottom: 6%;
+        font-size: 15px;
+    }
+
+    .footer_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 50vh;
+        background-color: #283913;
+    }
+
+    /*  */
+    @media screen and (max-width: 2000px) and (min-width: 1623px) {
+        #categories {
+            width: 36vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 10vh;
+            align-items: center;
+        }
+
+    }
+
+    @media screen and (max-width: 1625px) and (min-width: 1370px) {
+        #categories {
+            width: 45vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 10vh;
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width:992px) {
+
+        /* <!-- header --> */
+        #navbar {
+            display: none;
+        }
+
+        .dropdown a {
+            display: none;
+        }
+
+        #categories {
+            display: none;
+        }
+
+        .search a {
+            display: none;
+        }
+
+        .drawersection span {
+            display: block;
+        }
+
+        #dropdown_search {
+            display: block;
+        }
+
+        /* main */
+        #backgroundimage1 {
+            height: 40vh;
+            padding-top: 10vh;
+            margin-top: 3vh;
+        }
+
+        #backgroundimage1_text1 {
+            font-size: 2.5vh;
+
+        }
+
+        #backgroundimage1_text2 {
+            font-size: 8vh;
+
+        }
+
+        #sec3_Img1_Text {
+            font-size: 7vh;
+
+        }
+
+        #sec3_Img1_Text2 {
+            font-size: 1.8vh;
+            font-weight: 500;
+            width: 42%;
+
+        }
+
+        #sec3_Img1_button {
+            width: 13%;
+        }
+
+        #backgroundimage2 {
+            height: 40vh;
+        }
+
+        #backgroundimage3 {
+            height: 40vh;
+            background-size: 32vw 43vh;
+
+
+        }
+
+        #section3_backgroundimage1 {
+            height: 45vh;
+        }
+
+        #section3_backgroundimage2 {
+            height: 45vh;
+        }
+
+        #section3_backgroundimage3 {
+            height: 45vh;
+        }
+
+        #section3_backgroundimage4 {
+            height: 45vh;
+        }
+
+        .sec3_img_p {
+            margin-left: 8%;
+            margin-top: 36vh;
+        }
+
+        #backgroundimage3 p {
+            display: inline-block;
+            margin-left: 15%;
+            margin-top: 30vh;
+        }
+
+        #backgroundimage2 p {
+            display: inline-block;
+            margin-left: 15%;
+            margin-top: 30vh;
+        }
+    }
+
+    @media screen and (max-width:823px) {
+        footer {
+            height: 130%;
+        }
+
+        .footer_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 94%;
+            padding-left: 7vw;
+
+        }
+
+        .footer_a {
+            margin-bottom: 5%;
+        }
+
+        .section2_img {
+            height: 28vh;
+            width: 25vw;
+        }
+
+        .section2_div {
+            width: 35vw;
+
+
+        }
+
+
+    }
+
+
+    /*  */
+    @media (max-width:570px) {
+
+        /* header */
+        #navbar {
+            display: none;
+        }
+
+        /* main */
+        .section2_div {
+            width: 90vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1vw;
+        }
+
+        .section2_img {
+            width: 85vw;
+            height: 60vh;
+
+        }
+
+        .section2_img:hover .imghoverbtn {
+            display: none;
+
+        }
+
+        .section2_p {
+            font-size: 18px;
+        }
+
+        .section2_btn {
+            display: flex;
+        }
+
+        /* section1 */
+        #backgroundimage1 {
+            height: 30vh;
+            padding-top: 10vh;
+        }
+
+        #section1_ImgContainer {
+            flex-direction: column;
+            margin-top: 0;
+
+        }
+
+        #backgroundimage1_text2 {
+            font-size: 5vh;
+
+        }
+
+        #backgroundimage1_text1 {
+            font-size: 2vh;
+
+        }
+
+        #backgroundimage2 {
+            width: 100%;
+            height: 50vh;
+            margin-top: 2vh;
+        }
+
+        #backgroundimage3 {
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            margin-top: 2vh;
+        }
+
+        /* section3 */
+        #sec3_Img1_Text {
+            font-size: 4vh;
+            margin-bottom: 10px;
+
+        }
+
+        #sec3_Img1_Text2 {
+            display: none;
+        }
+
+        #sec3_Img1_button {
+            width: 25%;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        #section3_ImgContainer {
+            flex-direction: column;
+        }
+
+        #section3_backgroundimage2 {
+            width: 100%;
+            height: 90vh;
+        }
+
+        #section3_backgroundimage3 {
+            width: 100%;
+            height: 90vh;
+            margin-top: 2vh;
+        }
+
+        #section3_backgroundimage4 {
+            width: 100%;
+            height: 90vh;
+            margin-top: 2vh;
+        }
+
+        #sec1_imgDiv1 {
+            width: 100%;
+        }
+
+        #sec1_imgDiv2 {
+            width: 100%;
+        }
+
+        .sec3_imgContainer {
+            /* overflow: hidden; */
+            width: 100%;
+        }
+
+        .sec3_img_p {
+            margin-top: 80vh;
+            margin-left: 8%;
+        }
+
+        #backgroundimage3 p {
+            display: inline-block;
+            margin-left: 10%;
+            margin-top: 90vh;
+        }
+
+        #backgroundimage2 p {
+            display: inline-block;
+            margin-left: 10%;
+            margin-top: 40vh;
+        }
+    }
+</style>
+
+<body>
+    <!----------- header ------------->
+    <header>
+        <nav id="navbar">
+            <p id="Title">SPECIAL
+                EDITIONS!
+                RECREATIONAL & MEDICAL MARIJUANA!</p>
+        </nav>
+
+        <div id="logoSection">
+            <div class="drawersection">
+                <span onclick="openNav()"><i class="fa-solid fa-bars"></i></span>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="/HomeScreen.html">Home</a>
+                    <a href="/Catalog/Catalog.html">Catalog</a>
+                    <a href="/Collections/Collections.html">Collections</a>
+                    <a href="">Clearance</a>
+                    <a href="">Sections all</a>
+                    <a href="/Contact_Us/Contact_Us.html">Contact us</a>
+                    <hr>
+                    <a href="">Wishlist</a>
+                    <hr>
+                    <p>Account</p>
+                    <a href="/Account/Account.html" class="drawer_catagoriesItem">Account</a>
+                    <hr>
+                    <p>CURRENCY</p>
+                    <a href="" class="drawer_catagoriesItem">USD</a>
+                    <a href="" class="drawer_catagoriesItem">EUR</a>
+                    <a href="" class="drawer_catagoriesItem">GBP</a>
+
+                </div>
+                <div id="dropdown_search">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
+
+            <div class="dropdown"
+                style="position: absolute;left: 0vw;top: 20vh;font-size: 14px;font-family: sans-serif;display: inline-block;">
+                <a>USD <i class="fa-solid fa-angle-down"></i></a>
+                <div class="menu" style="padding-right: 2vw;">
+                    <p>USD <br> EUR <br>GBP </p>
+                </div>
+            </div>
+
+            <div class="search" style=" display: inline;position: absolute;right: 0vw;top: 20vh;font-family: sans-serif;font-size:
+                16px;">
+                <a>Search <i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+
+                <a>Wishlist <i class="fa-regular fa-heart"></i></a>
+
+                <a href="Account/Account.html">Account <i class="fa-solid fa-user"></i></a>
+
+                <a>Cart <i class="fa-solid fa-cart-shopping"></i></a>
+
+            </div>
+            <div>
+
+                <img src="https://cdn.shopify.com/s/files/1/0425/0818/9859/files/logo_180x80_crop_center@2x.png?v=1613560290"
+                    style="max-width: 180px;" />
+
+            </div>
+            <div id="categories">
+                <div class="menuContainer">
+                    <div class="categories_a"><a id="home" href="HomeScreen.html">Home</a></div>
+                    <div class="menu">
+                        <p>Home1 <br> Home2 <br>Home3 <br>Home4 <br></p>
+                    </div>
+
+                </div>
+
+                <div class="categories_a"><a href="Catalog/Catalog.html">Catalog</a></div>
+                <div class="menuContainer">
+                    <div class="categories_a"><a href="Collections/Collections.html">Collections</a></div>
+                    <div class="menu">
+                        <p>Home1 <br> Home2 <br>Home3 <br>Home4 <br></p>
+                    </div>
+
+                </div>
+
+                <div class="categories_a"><a href="Collections/collections_categories/Accessories.html">Clearance</a>
+                </div>
+                <div class="categories_a"><a>Sections all</a></div>
+                <div class="categories_a"><a href="Contact_Us/Contact_Us.html">Contact us</a></div>
+            </div>
+
+        </div>
+
+    </header>
+    <!------------- Main -------------->
+
+    <main>
+        <!-- section1 -->
+        <section id="section1">
+            <div id="backgroundimage1">
+                <div id="backgroundimage1_text1">SHOP OUR BESTSELLING</div>
+                <div id="backgroundimage1_text2">Medical Cannabis <br> with a concience</div>
+                <button id="backgroundimage1_button">Shop Now</button>
+            </div>
+            <div id="section1_ImgContainer">
+                <div id="sec1_imgDiv1">
+                    <div id="backgroundimage2">
+                        <p> CANNABIS FLOWERS </p>
+                    </div>
+                </div>
+
+                <div id="sec1_imgDiv2">
+                    <div id="backgroundimage3">
+                        <p> OILS </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- section2 -->
+        <section id="section2">
+            <p id="section2_Title">Shop Best Sellers</p>
+            <div id="section2_imgContainer">
+                <div class="section2_div">
+                    <div class="section2_img"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0425/0818/9859/products/sensi_star_dried_cannabis_flower_1_346x346_crop_center.jpg?v=1594034297)">
+                        <button class="imghoverbtn"><span class="material-symbols-sharp" style="margin-right: 5px;">
+                                local_mall
+                            </span><span style="font-size: 15px;font-family: sans-serif;"> Choose variant</span>
+                        </button>
+                    </div>
+                    <button class="section2_btn">Choose variant</button>
+                    <p class="section2_p">sativa <br>$150.00</p>
+                </div>
+                <div class="section2_div">
+                    <div class="section2_img"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0425/0818/9859/products/sensi_star_dried_cannabis_flower_1_346x346_crop_center.jpg?v=1594034297)">
+                        <button class="imghoverbtn"><span class="material-symbols-sharp" style="margin-right: 5px;">
+                                local_mall
+                            </span><span style="font-size: 15px;font-family: sans-serif;"> Choose variant</span>
+                        </button>
+                    </div>
+                    <button class="section2_btn">Choose variant</button>
+                    <p class="section2_p">sativa <br>$150.00</p>
+                </div>
+                <div class="section2_div">
+                    <div class="section2_img"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0425/0818/9859/products/sensi_star_dried_cannabis_flower_1_346x346_crop_center.jpg?v=1594034297)">
+                        <button class="imghoverbtn"><span class="material-symbols-sharp" style="margin-right: 5px;">
+                                local_mall
+                            </span><span style="font-size: 15px;font-family: sans-serif;"> Choose variant</span>
+                        </button>
+                    </div>
+                    <button class="section2_btn">Choose variant</button>
+                    <p class="section2_p">sativa <br>$150.00</p>
+                </div>
+                <div class="section2_div">
+                    <div class="section2_img"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0425/0818/9859/products/sensi_star_dried_cannabis_flower_1_346x346_crop_center.jpg?v=1594034297)">
+                        <button class="imghoverbtn"><span class="material-symbols-sharp" style="margin-right: 5px;">
+                                local_mall
+                            </span><span style="font-size: 15px;font-family: sans-serif;"> Choose variant</span>
+                        </button>
+                    </div>
+                    <button class="section2_btn">Choose variant</button>
+                    <p class="section2_p">sativa <br>$150.00</p>
+                </div>
+                <div class="section2_div">
+                    <div class="section2_img"
+                        style="background-image: url(https://cdn.shopify.com/s/files/1/0425/0818/9859/products/sensi_star_dried_cannabis_flower_1_346x346_crop_center.jpg?v=1594034297)">
+                        <button class="imghoverbtn"><span class="material-symbols-sharp" style="margin-right: 5px;">
+                                local_mall
+                            </span><span style="font-size: 15px;font-family: sans-serif;"> Choose variant</span>
+                        </button>
+                    </div>
+                    <button class="section2_btn">Choose variant</button>
+                    <p class="section2_p">sativa <br>$150.00</p>
+                </div>
+        </section>
+        <!-- section3 -->
+        <section id="section3">
+            <div style="margin-top: 10vh; margin-bottom: 10vh;">
+                <div id="section3_backgroundimage1">
+                    <div id="sec3_Img1_Text">About our store</div>
+                    <div id="sec3_Img1_Text2">FROM SEED TO SALE, WE TAKE PRIDE IN OUR CANNABIS TO ENSURE A SMOOTH
+                        EXPERIENCE WITH ATTENTION
+                        TO DETAIL AND QUALITY. WE HAVE ESTABLISHED OURSELVES ALONG VARIOUS POINTS IN THE CANNABIS,
+                        INDUSTRIAL HEMP, AND RELATED SERVICES SUPPLY CHAIN AND RELATED SERVICES SUPPLY CHAIN.
+                    </div>
+                    <button id="sec3_Img1_button">Shop Now</button>
+                </div>
+                <div id="section3_ImgContainer">
+                    <div class="sec3_imgContainer">
+                        <div id="section3_backgroundimage2">
+                            <p class="sec3_img_p">EDIBLES</p>
+                        </div>
+                    </div>
+                    <div class="sec3_imgContainer">
+                        <div id="section3_backgroundimage3">
+                            <P class="sec3_img_p">CBD</P>
+                        </div>
+                    </div>
+                    <div class="sec3_imgContainer">
+                        <div id="section3_backgroundimage4">
+                            <P class="sec3_img_p">CONCENTRATES</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section4 -->
+        <section>
+            <div style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
+                <p id="section2_Title">Get our latest news and special sales</p>
+                <p style="font-weight: 300;font-size: 16px;font-family: sans-serif; text-align: center;">YOU MAY
+                    UNSUBSCRIBE AT ANY MOMENT.
+                    FOR THAT PURPOSE, PLEASE FIND OUR CONTACT INFO IN THE LEGAL NOTICE.</p>
+                <div>
+                    <input placeholder="EMAIL" style="padding: 10px;" />
+                    <button
+                        style="color: white; background-color: #283913;border-color: white;padding: 10px;">Get</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!--------- footer ---------->
+    <footer>
+        <div class="footer_container">
+            <div class="footer_div">
+                <h6 class="footer_title">Your account</h6>
+                <a class="footer_a">PERSONAL INFO</a>
+                <a class="footer_a">ORDERS</a>
+                <a class="footer_a">MY CART</a>
+                <a class="footer_a">ADDRESSES</a>
+
+            </div>
+            <div class="footer_div">
+                <h6 class="footer_title">Customer service</h6>
+                <a class="footer_a">MONDAY TO FRIDAY</a>
+                <a class="footer_a">10AM - 6.30PM (NEWYORK TIME)</a>
+                <a class="footer_a">MY CART</a>
+                <a class="footer_a">shopify@zemez.io</a>
+            </div>
+            <div class="footer_div">
+                <h6 class="footer_title">Our guarantees</h6>
+                <a class="footer_a">SHIPPING IN 3 DAYS</a>
+                <a class="footer_a">FREE RETURNS WITHIN 14 DAYS</a>
+                <a class="footer_a">SECURE PAYMENTS</a>
+                <a class="footer_a">ADDRESSES</a>
+            </div>
+            <div class="footer_div">
+                <h6 class="footer_title">Our company</h6>
+                <a class="footer_a">DELIVERY</a>
+                <a class="footer_a">PRIVACY POLICY</a>
+                <a class="footer_a">CONTACT US</a>
+                <a class="footer_a">ADDRESSES</a>
+            </div>
+
+
+        </div>
+        <div style="border-top: 1px solid white;padding-left: 2vw;">
+            <h4 style="color: white;font-family: sans-serif;">HOLY WEED</h4>
+        </div>
+    </footer>
+</body>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "350px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+</html>
